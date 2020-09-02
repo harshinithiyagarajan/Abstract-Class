@@ -30,6 +30,7 @@ class employee implements customer
 {
     String m;
     int in;
+    int tax;
     @Override
     public void information()
     {
@@ -43,31 +44,46 @@ class employee implements customer
     {
         if(in<=190000)
         {            
-            if(m=="male")
+            if("male".equals(m))
                 System.out.println("tax is nil");
             if("female".equals(m))
                 System.out.println("tax is nil");            
         }
-        else if(in<=200000)
+        else if(in<=200000 && in>190000)
         {
             if("male".equals(m))
-                System.out.println("tax is 10%");
+                { 
+                   tax=in*10/100;
+                   System.out.println("tax is "+tax);
+                }
             if("female".equals(m))
                 System.out.println("tax is nil");                    
         }
-        else if(in<=500000)
+        else if(in<=500000 && in>200000)
         {
             if("male".equals(m))
-                System.out.println("tax is 20%");
+            {
+                tax=in*20/100;
+                System.out.println("tax is "+tax);
+            }     
             if("female".equals(m))
-                System.out.println("tax is 10%");            
+            {
+                tax=in*10/100;
+                System.out.println("tax is "+tax);
+            } 
         }
         else
         {
             if("male".equals(m))
+            {
+                tax=in*25/100;
                 System.out.println("tax is 25%");
+            }    
             if("female".equals(m))
-                System.out.println("tax is 20%");            
+            {
+                tax=in*20/100;
+                System.out.println("tax is "+tax);
+            }    
         }
         
     }
